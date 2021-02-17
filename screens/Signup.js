@@ -12,7 +12,9 @@ class Signup extends React.Component {
     
     handleSignUp = () => {
         this.props.signup()
-        this.props.navigation.navigate('Profile')
+        if (this.props.user.email != null) {
+            this.props.navigation.navigate('Profile')
+        }
     }
 
     render() {
