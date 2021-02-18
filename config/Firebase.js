@@ -31,4 +31,5 @@ db.settings({
     timestampsInSnapshots: true
 })
 
+
 export default Firebase

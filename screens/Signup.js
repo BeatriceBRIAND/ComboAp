@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, TextInput, StyleSheet, TouchableOpacity, Text, KeyboardAvoidingView } from 'react-native'
+import { View, TextInput, StyleSheet, TouchableOpacity, Text, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard } from 'react-native'
 
 
 import Firebase from '../config/Firebase'
@@ -20,8 +20,10 @@ class Signup extends React.Component {
     render() {
         return (
             
-            <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
-                
+            <KeyboardAvoidingView style={styles.containerForm} 
+            behavior={Platform.OS === "ios" ? "padding" : "height"}>
+                <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+                <View style={styles.container}>
                 <TextInput
                     style={styles.inputBox}
                     autoCapitalize="none"
@@ -32,7 +34,6 @@ class Signup extends React.Component {
                     placeholder='Email'
                     clearButtonMode="while-editing"
                     //onSubmitEditing={this.handleAddPress}
-                    
                 />
                 <TextInput
                     style={styles.inputBox}
@@ -44,6 +45,8 @@ class Signup extends React.Component {
                <TouchableOpacity style={styles.button} onPress={this.handleSignUp}>
                 <Text style={styles.buttonText}>Signup</Text>
             </TouchableOpacity>
+            </View>
+            </TouchableWithoutFeedback>
             </KeyboardAvoidingView>
         )
     }
@@ -55,6 +58,9 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center'
+    },
+    containerForm: {
+        flex: 1,
     },
     inputBox: {
         width: '85%',

@@ -6,6 +6,7 @@ import Firebase from '../config/Firebase'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
+
 class Login extends React.Component {
     constructor() {  
         super();  
@@ -66,8 +67,6 @@ class Login extends React.Component {
                     <Text style={styles.buttonText}>Se connecter</Text>                    
                 </TouchableOpacity>
                 <Button title="Pas encore de compte ? Inscrivez-vous !"
-                onPress={() => this.props.navigation.navigate('Signup')}/>
-                <Button title="Changez votre mot de passe : cliquez ici !"
                 onPress={() => this.props.navigation.navigate('Signup')}/>
             </View>
             </TouchableWithoutFeedback>

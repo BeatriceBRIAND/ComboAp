@@ -7,6 +7,7 @@ import Login from '../screens/Login'
 import Signup from '../screens/Signup'
 import Profile from '../screens/Profile'
 
+
 const SwitchNavigator = createStackNavigator(
     {
         Login: {
@@ -17,7 +18,7 @@ const SwitchNavigator = createStackNavigator(
         },
         Profile: {
             screen: Profile
-        }
+        },
     },
     {
         initialRouteName: 'Login'
